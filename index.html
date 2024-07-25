@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Console Tricks!</title>
+    <link rel="icon" href="https://fav.farm/🔥" />
+  </head>
+  <body>
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
+
+    <script>
+      const dogs = [
+        { name: "Snickers", age: 2 },
+        { name: "hugo", age: 8 },
+      ];
+      const p = document.querySelector("p");
+      function makeGreen() {
+        p.style.color = "#BADA55";
+        p.style.fontSize = "50px";
+      }
+
+      // Regular
+      console.log("hello");
+
+      // Interpolated
+      const name = "Dr. Anjali Sharma";
+      console.log(` My Name is ${name}`);
+
+      // Styled
+      console.log(
+        `%c My Name is ${name}`,
+        "color:red font-Size:40px font-weight:bolder;"
+      );
+
+      // warning!
+      console.warn("I am warning you !!");
+
+      // Error :|
+      console.error("error:|");
+
+      // Info
+      console.info(" Loading Information");
+
+      // Testing
+      console.assert(p.classList.contains("ouch"), "wrong");
+      // Viewing DOM Elements
+      console.log(p);
+      console.dir(p);
+
+      //clearing
+      // console.clear();
+
+      // Grouping together
+      dogs.forEach((dog) => {
+        console.group(`${dog.name}`);
+        console.log(`This is ${dog.name}`);
+        console.log(`${dog.name} is ${dog.age} years old`);
+        console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+        console.groupEnd(`${dog.name}`);
+      });
+
+      // counting
+      console.count("anjali");
+      console.count("anjali");
+      console.count("Saket");
+      console.count("Saket");
+      console.count("anjali");
+      console.count("anuj");
+      console.count("shaant");
+      console.count("Siddhant");
+      console.count("saket");
+      console.count("anjali");
+      console.count("anuj");
+      console.count("anuj");
+
+      // timing
+      console.time("Loop Time");
+      for (let i = 0; i < 1000000; i++) {}
+      console.timeEnd("Loop Time");
+
+      console.time("fetching data");
+      fetch("https://api.github.com/users/wesbos")
+        .then((data) => data.json())
+        .then((data) => {
+          console.timeEnd("fetching data");
+          console.log(data);
+        });
+
+      //table
+      console.table(dogs);
+    </script>
+  </body>
+</html>
